@@ -27,10 +27,6 @@ namespace :centos6 do
     run "yum -y install httpd" do |channel, stream, data|
       puts data
     end
-
-
-    #"4    ACCEPT     tcp  --  anywhere             anywhere            state NEW tcp dpt:ssh"
-
     
     if use_http != 'no'
       run "iptables -I INPUT 5 -m state --state NEW -p tcp --dport 80 -j ACCEPT"
